@@ -1,10 +1,12 @@
 import express from 'express'
 import cors from 'cors'
+import helmet from 'helmet';
 import { PrismaClient } from '@prisma/client'
 const prisma = new PrismaClient()
 const app = express()
 app.use(express.json())
 app.use(cors())
+app.use(helmet());
 
 app.post('/', async (req,res) => {
     try {
@@ -26,4 +28,5 @@ app.post('/', async (req,res) => {
     }
 })
 
-app.listen(3000, () => console.log('API RODANDO'))  
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => console.log(`API rodando na porta ${PORT}`));
