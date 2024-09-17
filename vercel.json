@@ -1,0 +1,10 @@
+{
+    "version": 2,
+    "builds": [
+      { "src": "ReArtsBack/server.js", "use": "@vercel/node" }
+    ],
+    "routes": [
+      { "src": "/(.*)", "dest": "/ReArtsBack/server.js" }
+    ]
+  }
+  
