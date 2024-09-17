@@ -1,13 +1,16 @@
 {
   "name": "reartsback",
   "version": "1.0.0",
-  "main": "index.js",
-  "type": "module",
+  "main": "server.js",
   "scripts": {
-    "build": "npx prisma generate",
-    "start": "node server.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "prisma generate",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
   "dependencies": {
     "@prisma/client": "^5.19.1",
     "cors": "^2.8.5",
@@ -18,3 +21,4 @@
     "prisma": "^5.19.1"
   }
 }
+
