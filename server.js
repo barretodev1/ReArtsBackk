@@ -8,25 +8,30 @@ app.use(express.json())
 app.use(cors())
 app.use(helmet());
 
-app.post('/', async (req,res) => {
-    try {
-        const user = req.body
-
-        const userDB = await prisma.user.create({
-            data:{
-                nome: user.nome,
-                email: user.email,
-                telefone: user.telefone,
-                servico: user.servico,
-                mensagem: user.mensagem
+try {
+    app.post('/', async (req,res) => {
+        try {
+            const user = req.body
+    
+            const userDB = await prisma.user.create({
+                data:{
+                    nome: user.nome,
+                    email: user.email,
+                    telefone: user.telefone,
+                    servico: user.servico,
+                    mensagem: user.mensagem
+            }
+        })
+        res.status(201).json(userDB)
+        } catch (error) {
+            console.log(error)
+            return res.status(500).json({message: 'ERRO NO SERVIDOR, TENTE NOVAMENTE'})
         }
     })
-    res.status(201).json(userDB)
-    } catch (error) {
-        console.log(error)
-        return res.status(500).json({message: 'ERRO NO SERVIDOR, TENTE NOVAMENTE'})
-    }
-})
+        
+} catch (error) {
+    const PORT = process.env.PORT || 3000;
+    app.listen(PORT, () => console.log(`API rodando na porta ${PORT}`));
+    console.log(error)
+}
 
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => console.log(`API rodando na porta ${PORT}`));
