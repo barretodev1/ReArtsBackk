@@ -4,8 +4,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "build": "prisma generate && npm run build:app",
-    "build:app": "echo 'No build command specified' && exit 1",
+    "build": "npx prisma generate",
     "start": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
