@@ -4,7 +4,9 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "build": "prisma generate && npm run build",
+    "build": "prisma generate && npm run build:app",
+     "build:app": "npm run build",
+    "start": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
