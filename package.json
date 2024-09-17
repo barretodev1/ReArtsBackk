@@ -5,14 +5,10 @@
   "type": "module",
   "scripts": {
     "build": "prisma generate && npm run build:app",
-     "build:app": "npm run build",
+    "build:app": "echo 'No build command specified' && exit 1",
     "start": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "description": "",
   "dependencies": {
     "@prisma/client": "^5.19.1",
     "cors": "^2.8.5",
